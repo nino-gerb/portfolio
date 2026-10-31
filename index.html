@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nino Gerber — Embedded Systems &amp; Edge AI</title>
+  <meta name="description" content="Portfolio of Nino Gerber: embedded systems and edge AI projects, including master's and bachelor's theses.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">Nino Gerber</a>
+      <nav>
+        <a href="#approach">Approach</a>
+        <a href="#projects">Projects</a>
+        <a class="nav-cta" href="#contact">Get in touch →</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ INTRO ============ -->
+    <section class="hero wrap">
+      <p class="eyebrow">MSc EPFL · Embedded Systems &amp; Edge AI</p>
+      <h1>From idea to working prototype, fast.</h1>
+      <p class="lead">
+        I build small proofs of concept on real hardware: sensors, firmware, custom PCBs and
+        machine learning that runs on the device. Kept deliberately small, so you find out early
+        whether an idea works.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="#contact">Start a prototype →</a>
+        <a class="btn" href="#projects">See projects</a>
+      </div>
+    </section>
+
+    <!-- ============ APPROACH ============ -->
+    <section id="approach" class="wrap section">
+      <p class="label">§ 01 · Approach</p>
+      <h2>Small scope. Working hardware. Clear answer.</h2>
+      <ol class="steps">
+        <li>
+          <span class="step-no">01</span>
+          <h3>Scope</h3>
+          <p>We pin down the one question the prototype has to answer, and leave out everything else.</p>
+        </li>
+        <li>
+          <span class="step-no">02</span>
+          <h3>Build</h3>
+          <p>Hardware, firmware and models built quickly, on dev kits or custom boards, whichever is faster.</p>
+        </li>
+        <li>
+          <span class="step-no">03</span>
+          <h3>Measure</h3>
+          <p>A working demo with measured results, so the next decision is based on data rather than guesses.</p>
+        </li>
+      </ol>
+      <ul class="tags">
+        <li>Sensors &amp; data</li><li>Firmware &amp; RTOS</li><li>PCB design</li>
+        <li>Edge AI / TinyML</li><li>FPGA</li><li>Wireless: BLE, NFC</li>
+      </ul>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects" class="wrap section">
+      <p class="label">§ 02 · Projects</p>
+      <h2>Prototypes I have built</h2>
+
+      <!-- Master's thesis -->
+      <article class="thesis">
+        <div class="thesis-meta">
+          <span class="badge">Master's thesis</span>
+          <span>EPFL · CVLab, in collaboration with Logitech</span>
+          <span>April 2026</span>
+        </div>
+        <h3>Gesture Detection with Accelerometer</h3>
+        <div class="figs">
+          <figure class="wide">
+            <img src="assets/img/gesture-set.png" width="1800" height="317" loading="lazy"
+                 alt="Illustrations of the six mouse gestures: flick right, flick left, shake, flick up, roll right, roll left">
+            <figcaption>The six intentional gestures the model recognises.</figcaption>
+          </figure>
+          <figure class="wide">
+            <img src="assets/img/gesture-architecture.jpg" width="1600" height="832" loading="lazy"
+                 alt="System diagram: accelerometer data from the mouse goes to a host PC for buffering and downsampling, then over UART to the nRF54L15-DK, which runs DTW, FNN or 1D-CNN inference and returns the class">
+            <figcaption>Prototype architecture: mouse accelerometer → host PC → inference on the nRF54L15-DK.</figcaption>
+          </figure>
+        </div>
+        <p>
+          Can a computer mouse recognise gestures using only its built-in 3-axis accelerometer?
+          This thesis explores gesture recognition as a way to trigger shortcuts on productivity
+          mice without additional hardware. It combines real data collection with a synthetic data
+          pipeline built on Unity3D and the Captury Live motion-capture system, which models
+          biomechanical diversity, sensor placement and device geometry. A dedicated "Null" class
+          separates intentional gestures from routine mouse repositioning.
+        </p>
+        <p>
+          Three classifiers — 1D-CNN, feed-forward network and Dynamic Time Warping — were
+          trained, quantized and deployed on the Nordic nRF54L15-DK.
+        </p>
+        <dl class="stats">
+          <div><dt>0.91</dt><dd>Macro F1, 12-class 1D-CNN</dd></div>
+          <div><dt>2.70 ms</dt><dd>CNN inference on nRF54L15</dd></div>
+          <div><dt>4.9 KB</dt><dd>8-bit quantized CNN</dd></div>
+          <div><dt>0.24 KB</dt><dd>"Two-Pass" DTW, 0.32 ms</dd></div>
+        </dl>
+        <ul class="tags">
+          <li>TinyML</li><li>1D-CNN</li><li>DTW / DBA</li><li>Quantization</li>
+          <li>nRF54L15</li><li>Unity3D</li><li>Motion capture</li><li>Python</li><li>C</li>
+        </ul>
+        <!-- Add links once you have confirmed the thesis may be published (industry thesis).
+             Put files in assets/docs/ and uncomment:
+        <div class="links">
+          <a href="assets/docs/master-thesis.pdf">Read the thesis (PDF)</a>
+          <a href="assets/docs/master-thesis-slides.pdf">Defense slides</a>
+        </div>
+        -->
+      </article>
+
+      <!-- Bachelor's thesis -->
+      <article class="thesis">
+        <div class="thesis-meta">
+          <span class="badge">Bachelor's thesis</span>
+          <span>HE-Arc · for ORS Kart Racing</span>
+          <span>August 2022</span>
+        </div>
+        <h3>Digital Slot Car Controller</h3>
+        <div class="figs">
+          <figure>
+            <img src="assets/img/slot-car-controller.jpg" width="972" height="467" loading="lazy"
+                 alt="Prototype: the base board with SD card connected to the transparent hand controller with trigger and rotary buttons">
+            <figcaption>The finished prototype: base board (left) and hand controller.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/img/slot-car-controller-pcb.jpg" width="1600" height="615" loading="lazy"
+                 alt="PCB layout of the controller board, shaped to fit inside the controller casing, with the battery area marked">
+            <figcaption>Controller PCB layout, shaped to fit the existing casing.</figcaption>
+          </figure>
+        </div>
+        <p>
+          A prototype slot car controller built around two custom PCBs. The handheld controller
+          reads a friction-free magnetic trigger and four rotary encoders, shows speed and settings
+          on an OLED display, and runs on a USB-rechargeable battery. The base drives the car's DC
+          motor through an H-bridge and talks to the controller by cable or Bluetooth Low Energy.
+        </p>
+        <p>
+          The work covered component research and selection, schematics, PCB layout, firmware on
+          NXP Kinetis microcontrollers, and testing of the trigger, transmission and motor output.
+        </p>
+        <dl class="stats">
+          <div><dt>2</dt><dd>custom PCBs: controller and base</dd></div>
+          <div><dt>232</dt><dd>distinct trigger positions, magnetic sensor</dd></div>
+          <div><dt>≤ 15°</dt><dd>magnetic vs mechanical angle deviation</dd></div>
+        </dl>
+        <ul class="tags">
+          <li>PCB design</li><li>NXP Kinetis</li><li>C</li><li>H-bridge</li>
+          <li>BLE</li><li>Magnetic sensing</li><li>Power supply</li>
+        </ul>
+      </article>
+      <div class="grid">
+        <!-- Copy one <article class="card"> block per project.
+             Optional image as first child: <img src="assets/img/project-name.jpg" alt="..." loading="lazy">
+             Optional link at the end of card-body: <a class="more" href="...">Code on GitHub →</a> -->
+        <article class="card">
+          <div class="card-body">
+            <p class="card-year">2022 · HE-Arc</p>
+            <h3>Autonomous line-following robot</h3>
+            <p>
+              A robot on the NXP KL46 that follows a track, avoids obstacles and reacts to impacts,
+              built on FreeRTOS with a layered architecture of interfaces, modules and managers.
+              Drivers for the MPU-9250 inertial unit and Bluetooth link were part of the work.
+            </p>
+            <ul class="tags"><li>FreeRTOS</li><li>NXP KL46</li><li>C</li><li>IMU</li><li>Bluetooth</li><li>I²C / SPI / UART</li></ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-body">
+            <p class="card-year">2021 · HE-Arc</p>
+            <h3>DCF77 time-signal decoder IP</h3>
+            <p>
+              A fully synchronous FPGA IP core that decodes the DCF77 atomic-clock time signal,
+              stores the time data in memory-mapped registers and raises an interrupt on each
+              complete frame. It plugs into the PicoBlaze soft-core and has a configurable clock prescaler.
+            </p>
+            <ul class="tags"><li>VHDL</li><li>FPGA</li><li>Vivado</li><li>PicoBlaze</li><li>Digital design</li></ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-body">
+            <p class="card-year">2022 · HE-Arc</p>
+            <h3>NFC tag reading and peer-to-peer link</h3>
+            <p>
+              Team project with an NFC module on an Arduino Uno over I²C: reading and writing NFC
+              tags, then peer-to-peer communication between two boards. Also tested on a Raspberry
+              Pi Pico, with a user guide documenting the setup.
+            </p>
+            <ul class="tags"><li>NFC</li><li>Arduino</li><li>I²C</li><li>Raspberry Pi Pico</li><li>C++</li></ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="contact">
+      <div class="wrap contact-inner">
+        <p class="label">§ 03 · Contact · Get in touch</p>
+        <h2>Got an idea? Let's build the first version.</h2>
+        <p class="contact-lead">
+          Tell me what you want to test. I'll tell you honestly whether a quick proof of concept
+          makes sense and what it would take. If I'm not the right fit, I'll say so.
+        </p>
+
+        <div class="contact-id">
+          <span class="label">NG · 01</span>
+          <div>
+            <p class="contact-name">Nino Gerber</p>
+            <p class="contact-sub">Embedded systems &amp; edge AI · Switzerland</p>
+          </div>
+        </div>
+
+        <!-- Add more buttons here later, e.g. <a class="btn ghost" href="https://www.linkedin.com/in/..." rel="noopener">LinkedIn</a> -->
+        <div class="actions">
+          <a class="btn light" href="mailto:nino.gerber@gmail.com">nino.gerber@gmail.com →</a>
+        </div>
+
+        <!-- No server needed: the form opens the visitor's email app with the message pre-filled. -->
+        <form class="contact-form" id="contact-form">
+          <p class="form-head">Send a message · Reply by email</p>
+          <label>
+            <span>Name</span>
+            <input name="name" type="text" placeholder="Your name" autocomplete="name" required>
+          </label>
+          <label>
+            <span>Company <em>optional</em></span>
+            <input name="company" type="text" placeholder="Your company" autocomplete="organization">
+          </label>
+          <label>
+            <span>What do you want to build?</span>
+            <textarea name="message" rows="4" placeholder="The idea, the hardware involved, and what the prototype should prove…" required></textarea>
+          </label>
+          <button class="btn light" type="submit">Send message →</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap"><p>© <span id="year">2026</span> Nino Gerber</p></div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var f = e.target;
+      var who = f.name.value.trim() + (f.company.value.trim() ? ' (' + f.company.value.trim() + ')' : '');
+      var subject = 'Prototype idea from ' + who;
+      location.href = 'mailto:nino.gerber@gmail.com?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(f.message.value.trim() + '\n\n— ' + who);
+    });
+  </script>
+</body>
+</html>
